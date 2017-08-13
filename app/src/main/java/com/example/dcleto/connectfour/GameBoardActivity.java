@@ -16,8 +16,9 @@ public class GameBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_board);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        int gameMode = getIntent().getIntExtra(Constants.GAME_MODE,-1);
         GameBoardFragment fragment = new GameBoardFragment();
-        GameBoardPresenter presenter = new GameBoardPresenter(fragment);
+        GameBoardPresenter presenter = new GameBoardPresenter(fragment,gameMode);
         getSupportFragmentManager().beginTransaction().add(R.id.frame_container,fragment).commit();
 
     }
